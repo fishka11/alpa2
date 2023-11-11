@@ -18,7 +18,7 @@ export default function PortfolioImage({
         fill
         src={photo}
         blurDataURL={photo.blurDataUrl}
-        placeholder={"blurDataUrl" in photo ? "blur" : undefined}
+        placeholder={"blurDataUrl" in photo ? "blur" : "empty"}
         {...{ alt, title, sizes, className, onClick }}
       />
     </motion.div>

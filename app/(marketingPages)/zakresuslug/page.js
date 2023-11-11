@@ -21,7 +21,7 @@ export default async function Services() {
   const content = data?.marketingPages[0];
   return (
     <>
-      <LeadingImage img={content?.header} pageTitle={content?.title} />
+      <LeadingImage picture={content?.header} pageTitle={content?.title} />
       <div className="container max-w-7xl py-12 px-3">
         <TextBlock texts={content?.texts} />
         <MotionCardsWithPic cards={content?.cardsWithPic} />

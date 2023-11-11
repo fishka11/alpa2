@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import preProcessPics from "../lib/picturesPreProcess";
 import getData from "../lib/fetchAPI";
 import { getMarketingPagesContent } from "../lib/queries";
 
@@ -13,15 +14,18 @@ export default async function Cover({ slug }) {
     }%`,
   };
 
+  const reducedPicture = await preProcessPics([content.header.picture]);
+
   return (
     <div className="relative overflow-clip">
       <div className="aria-hidden fixed top-0 -z-50 flex min-h-screen w-full overflow-clip before:absolute before:h-full before:w-full before:bg-white before:opacity-10">
+        {console.log(reducedPicture[0])}
         <Image
-          src={content?.header?.picture?.url}
-          width={content?.header?.picture?.width}
-          height={content?.header?.picture?.height}
-          blurDataURL={content?.header?.smallPicture?.url}
-          placeholder={content?.header?.smallPicture?.url ? "blur" : "empty"}
+          src={reducedPicture[0]?.url}
+          width={reducedPicture[0]?.width}
+          height={reducedPicture[0]?.height}
+          blurDataURL={reducedPicture[0]?.blurDataURL}
+          placeholder={reducedPicture[0]?.blurDataURL ? "blur" : "empty"}
           style={imageStyle}
           sizes="100vw"
           className="aria-hidden h-screen w-full"

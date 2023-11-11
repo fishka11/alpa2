@@ -1,9 +1,8 @@
 import LeadingImage from "../../components/leadingImage";
-import Metamorphose from "../../components/metamprphose";
+import Metamorphoses from "../../components/metamprphoses";
 import TextBlock from "../../components/textBlock";
 import getData from "../../lib/fetchAPI";
-import preProcessPics from "../../lib/picturesPreProcess";
-import { getMarketingPagesContent, getPortfolio } from "../../lib/queries";
+import { getMarketingPagesContent, getMetamorphoses } from "../../lib/queries";
 
 export async function generateMetadata() {
   const data = await getData(getMarketingPagesContent("metamorfozy"));
@@ -17,21 +16,18 @@ export async function generateMetadata() {
   }
 }
 
-export default async function Metamorphoses() {
+export default async function MetamorphosesPage() {
   const data1 = await getData(getMarketingPagesContent("metamorfozy"));
-  const data2 = await getData(getPortfolio("metamorphose"));
+  const data2 = await getData(getMetamorphoses);
   const content = data1?.marketingPages[0];
-  const pictures = await preProcessPics(data2.assets);
+  const metamorphoses = data2?.metamorphoses;
 
   return (
     <>
-      <LeadingImage img={content?.header} pageTitle={content?.title} />
+      <LeadingImage picture={content?.header} pageTitle={content?.title} />
       <div className="container max-w-7xl py-12 px-3">
         <TextBlock texts={content?.texts} />
-        <Metamorphose
-          pictures={pictures}
-          metamorphoses={content.metamorphoses}
-        />
+        <Metamorphoses metamorphoses={metamorphoses} />
       </div>
     </>
   );

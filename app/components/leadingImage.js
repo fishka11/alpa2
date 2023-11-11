@@ -1,12 +1,18 @@
 import Image from "next/image";
+import preProcessPics from "../lib/picturesPreProcess";
 
-export default function LeadingImage({ img, pageTitle }) {
+export default async function LeadingImage({
+  picture: leadingPicture,
+  pageTitle,
+}) {
   const imageStyle = {
     objectFit: "cover",
     objectPosition: `50% ${
-      img?.verticalPosition ? img.verticalPosition : `50%`
+      leadingPicture?.verticalPosition ? leadingPicture.verticalPosition : `50%`
     }%`,
   };
+  const reducedPicture = await preProcessPics([leadingPicture.picture]);
+
   return (
     <section id="leading-image">
       <div className="relative h-60 w-full overflow-hidden bg-slate-200 lg:h-96">
@@ -16,9 +22,9 @@ export default function LeadingImage({ img, pageTitle }) {
           </h1>
         </div>
         <Image
-          src={img?.picture?.url}
-          blurDataURL={img?.smallPicture?.url}
-          placeholder={img?.smallPicture?.url ? "blur" : "empty"}
+          src={reducedPicture[0]?.url}
+          blurDataURL={reducedPicture[0]?.blurDataURL}
+          placeholder={reducedPicture[0]?.blurDataURL ? "blur" : "empty"}
           fill
           alt="Zdjecie w nagłówku"
           style={imageStyle}

@@ -22,8 +22,7 @@ export default async function WhyUs() {
   const content = data?.marketingPages[0];
   return (
     <>
-      <LeadingImage img={content?.header} pageTitle={content?.title} />
-
+      <LeadingImage picture={content?.header} pageTitle={content?.title} />
       <div className="container max-w-7xl py-12 px-3">
         <TextBlock texts={content?.texts} />
         <MotionHeading

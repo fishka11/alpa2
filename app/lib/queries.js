@@ -26,7 +26,7 @@ export const getHeaderContent = `query headerContent {
 }`;
 
 export const getPortfolio = (tag) => `query portfolioPics {
-  assets(first: 1000, where: {tags_contains_some: ${tag}}, orderBy: publishedAt_DESC) {
+  assets(first: 1000, where: {tags_contains_some: ${tag}}, orderBy: createdAt_DESC) {
     fileName
     height
     id
@@ -38,6 +38,61 @@ export const getPortfolio = (tag) => `query portfolioPics {
   }
 }
 `;
+
+export const getMetamorphoses = `query getMetamorphoses {
+  metamorphoses {
+    after {
+      fileName
+      handle
+      height
+      id
+      mimeType
+      size
+      url
+      width
+      tags
+    }
+    before {
+      fileName
+      handle
+      height
+      id
+      mimeType
+      size
+      url
+      width
+      tags
+    }
+    beforeAfter {
+      fileName
+      handle
+      height
+      id
+      mimeType
+      size
+      tags
+      url
+      width
+    }
+    id
+    slug
+    texts {
+      subtitle
+      id
+      text {
+        html
+        markdown
+        raw
+        text
+      }
+    }
+    title
+    markdownTexts {
+      markdownText
+      id
+    }
+  }
+}`;
 
 export const getPolishTagNames = `query getPolishTagNames {
   tags {
@@ -59,16 +114,6 @@ export const getMarketingPagesContent = (slug) => `query marketingPagesContent {
     header {
       id
       picture {
-        fileName
-        handle
-        height
-        mimeType
-        id
-        size
-        url
-        width
-      }
-      smallPicture {
         fileName
         handle
         height
@@ -178,56 +223,6 @@ export const getMarketingPagesContent = (slug) => `query marketingPagesContent {
       positionInMenu
       slug
       visibleInMenu
-    }
-    metamorphoses {
-      title
-      texts {
-        subtitle
-        id
-        text {
-          html
-          markdown
-          raw
-          text
-        }
-      }
-      markdownTexts {
-        markdownText
-        id
-      }
-      after {
-        fileName
-        handle
-        height
-        id
-        mimeType
-        size
-        tags
-        url
-        width
-      }
-      before {
-        fileName
-        handle
-        height
-        id
-        mimeType
-        size
-        tags
-        url
-        width
-      }
-      beforeAfter {
-        fileName
-        handle
-        height
-        id
-        mimeType
-        size
-        tags
-        url
-        width
-      }
     }
   }
 }`;
