@@ -15,7 +15,9 @@ export default function PortfolioImage({
       layout
     >
       <Image
-        fill
+        width="100%"
+        height="100%"
+        // fill
         src={photo}
         blurDataURL={photo.blurDataUrl}
         placeholder={"blurDataUrl" in photo ? "blur" : "empty"}

@@ -18,6 +18,7 @@ export async function generateMetadata() {
 export default async function Contact() {
   const data = await getData(getMarketingPagesContent("kontakt"));
   const content = data?.marketingPages[0];
+
   return (
     <>
       <LeadingImage picture={content?.header} pageTitle={content?.title} />

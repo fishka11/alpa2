@@ -27,7 +27,8 @@ export default function Portfolio({ pictures, categories }) {
   const allCategories = pictures
     .map((photo) => photo.tags)
     .flat()
-    .filter((item, index, array) => array.indexOf(item) === index);
+    .filter((item, index, array) => array.indexOf(item) === index)
+    .filter((tag) => tag != "metamorphose");
 
   const categoriesPl = allCategories.map((category) => {
     let categoryPl =

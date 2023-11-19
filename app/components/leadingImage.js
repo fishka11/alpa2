@@ -12,7 +12,6 @@ export default async function LeadingImage({
     }%`,
   };
   const reducedPicture = await preProcessPics([leadingPicture.picture]);
-
   return (
     <section id="leading-image">
       <div className="relative h-60 w-full overflow-hidden bg-slate-200 lg:h-96">
@@ -22,9 +21,11 @@ export default async function LeadingImage({
           </h1>
         </div>
         <Image
-          src={reducedPicture[0]?.url}
-          blurDataURL={reducedPicture[0]?.blurDataURL}
-          placeholder={reducedPicture[0]?.blurDataURL ? "blur" : "empty"}
+          src={await reducedPicture[0]?.url}
+          blurDataURL={await reducedPicture[0]?.blurDataURL}
+          placeholder={
+            (await reducedPicture[0]?.blurDataURL) ? "blur" : "empty"
+          }
           fill
           alt="Zdjecie w nagłówku"
           style={imageStyle}
