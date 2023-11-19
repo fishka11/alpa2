@@ -48,13 +48,13 @@ export default async function Cover({ slug }) {
           </div>
           <div className="container mt-10 flex max-w-screen-md md:flex-row md:justify-center flex-col gap-6">
             <Link
-              className="transform-gpu rounded bg-indigo-900 w-48 px-4 py-2 text-center uppercase text-white no-underline transition-all hover:bg-indigo-600"
+              className="transform-gpu rounded bg-indigo-900 w-48 px-4 py-2 text-center uppercase text-white no-underline transition-all hover:bg-indigo-600 max-md:mx-auto"
               href={content?.header?.ctaButtons[0]?.url}
             >
               {content?.header?.ctaButtons[0]?.text}
             </Link>
             <Link
-              className="transform-gpu rounded bg-indigo-900 w-48 px-4 py-2 text-center uppercase text-white no-underline transition-all hover:bg-indigo-600"
+              className="transform-gpu rounded bg-indigo-900 w-48 px-4 py-2 text-center uppercase text-white no-underline transition-all hover:bg-indigo-600 max-md:mx-auto"
               href={content?.header?.ctaButtons[1]?.url}
             >
               {content?.header?.ctaButtons[1]?.text}
