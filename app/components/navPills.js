@@ -7,7 +7,7 @@ export default function NavPills({
   selectCategory,
 }) {
   return (
-    <nav className="flex flex-row justify-center gap-6 mb-10">
+    <nav className="flex flex-row justify-center flex-wrap gap-6 mb-10">
       {categories.map((cat, index) => (
         <Pill
           key={index}
