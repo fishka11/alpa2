@@ -8,7 +8,7 @@ export default function Metamorphose({ meta }) {
       ? meta.beforeAfter.slice(0, 3)
       : meta.beforeAfter;
 
-  return meta ? (
+  return (
     <Link
       href={`metamorfozy/${meta.slug}`}
       className="hover:bg-orange-100 w-full transform-gpu transition-all"
@@ -45,5 +45,5 @@ export default function Metamorphose({ meta }) {
         </div>
       </div>
     </Link>
-  ) : null;
+  );
 }
