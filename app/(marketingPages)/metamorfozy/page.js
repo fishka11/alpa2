@@ -1,13 +1,8 @@
 import LeadingImage from "../../components/leadingImage";
 import MotionMetamorphoses from "../../components/motionMetamprphoses";
 import TextBlock from "../../components/textBlock";
-import preProcessPics from "../../lib/picturesPreProcess";
 import getData from "../../lib/fetchAPI";
-import {
-  getMarketingPagesContent,
-  getMetamorphoses,
-  getPortfolio,
-} from "../../lib/queries";
+import { getMarketingPagesContent, getMetamorphoses } from "../../lib/queries";
 
 export async function generateMetadata() {
   const data = await getData(getMarketingPagesContent("metamorfozy"));

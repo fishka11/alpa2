@@ -1,6 +1,7 @@
 import ReactMarkdown from "react-markdown";
 import Image from "next/image";
 import Link from "next/link";
+import { v4 as uuidv4 } from "uuid";
 
 export default function Metamorphose({ meta }) {
   const picturesStrip =
