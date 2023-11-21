@@ -10,25 +10,24 @@ export default function Metamorphose({ meta }) {
       : meta.beforeAfter;
   console.log(picturesStrip);
 
-  return (
+  return meta.title && meta.texts.length ? (
     <Link
       href={`metamorfozy/${meta.slug}`}
       className="hover:bg-orange-100 w-full transform-gpu transition-all"
     >
       <div className="flex flex-col p-8">
         <h2 className="text-indigo-900 text-xl font-medium uppercase">
-          {meta.title && meta.title}
+          {meta.title}
         </h2>
         <div className="basis-full">
-          {meta.texts.length &&
-            meta.texts.map((tx) => {
-              return (
-                <div key={uuidv4()} className="mb-6">
-                  {tx.subtitle && <h3>{tx.subtitle}</h3>}
-                  <ReactMarkdown>{tx.text.markdown}</ReactMarkdown>
-                </div>
-              );
-            })}
+          {meta.texts.map((tx) => {
+            return (
+              <div key={uuidv4()} className="mb-6">
+                {tx.subtitle && <h3>{tx.subtitle}</h3>}
+                <ReactMarkdown>{tx.text.markdown}</ReactMarkdown>
+              </div>
+            );
+          })}
         </div>
         <div className="flex flex-row justify-stretch gap-4">
           {picturesStrip.length &&
@@ -49,5 +48,5 @@ export default function Metamorphose({ meta }) {
         </div>
       </div>
     </Link>
-  );
+  ) : null;
 }
